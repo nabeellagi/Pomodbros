@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+html,
+body,
+#root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+@font-face {
+    font-family: "IndieFlower";
+    src: url("./assets/fonts/IndieFlower-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "CherryBombOne";
+    src: url("./assets/fonts/CherryBombOne-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Kavoon";
+    src: url("./assets/fonts/Kavoon-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: "HiMelody";
+    src: url('./assets/fonts/HiMelody-Regular.ttf') format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}

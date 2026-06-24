@@ -1,0 +1,4 @@
+name=PomodBros
+version=0.1.0
+description=Fun pomodoro timer with shimejii companions!
+keywords=Pomodoro,productive,fun
