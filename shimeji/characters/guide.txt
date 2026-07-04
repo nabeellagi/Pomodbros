@@ -1,0 +1,7 @@
+Sprite sets :
+1. Normal
+2. Drag
+3. Drop
+4. Walk start and Walk end
+
+also do config.json too

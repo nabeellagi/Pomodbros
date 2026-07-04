@@ -1,0 +1,29 @@
+{
+  "display_name": "Amber",
+  "scale": 0.1,
+  "hitbox_mode": "full_sprite",
+  "physics": {
+    "gravity": 500,
+    "fall_speed_max": 450,
+    "hop_velocity": 120,
+    "bounce_velocity": 90,
+    "throw_multiplier": 0.35,
+    "horizontal_friction": 0.96
+  },
+  "behavior": {
+    "walk_speed": 70,
+    "walk_frame_duration": 0.35,
+    "walk_min_cycles": 2,
+    "walk_max_cycles": 12,
+    "walk_chance": 0.7,
+    "idle_min_wait": 1.5,
+    "idle_max_wait": 4.0
+  },
+  "states": {
+    "normal": "normal.png",
+    "drag": "drag.png",
+    "fall": "fall.png",
+    "walk_0": "walk_0.png",
+    "walk_1": "walk_1.png"
+  }
+}
