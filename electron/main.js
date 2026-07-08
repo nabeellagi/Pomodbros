@@ -1,9 +1,9 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 
 const isDev = !app.isPackaged;
-// const URL = "http://localhost:5173/";
-const URL = "http://localhost:5173/testings/font";
+const URL = "http://localhost:5173/";
+// const URL = "http://localhost:5173/#/testings/fonts";
 
 const DIST = path.join(__dirname, '..', 'app', 'dist', 'index.html') // Vite build output
 
@@ -15,6 +15,7 @@ const createWindow = () => {
         resizable: false,
         maximizable: false,
         webPreferences: {
+            preload: path.join(__dirname, 'preload.js'),
             devTools: isDev,
             contextIsolation: true,
             nodeIntegration: false
@@ -32,6 +33,10 @@ const createWindow = () => {
         win.loadFile(DIST);
     }
 }
+
+ipcMain.on("app:quit", () => {
+    app.quit();
+})
 
 app.whenReady().then(createWindow)
 
