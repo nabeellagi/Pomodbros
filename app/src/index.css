@@ -9,6 +9,20 @@ body,
     overflow: hidden;
 }
 
+body{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+img {
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
+    user-drag: none;
+}
+
 @font-face {
     font-family: "IndieFlower";
     src: url("./assets/fonts/IndieFlower-Regular.ttf") format("truetype");

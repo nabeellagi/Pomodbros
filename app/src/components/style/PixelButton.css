@@ -1,0 +1,48 @@
+.pixel-button {
+    box-sizing: border-box;
+    min-width: 128px;
+    min-height: 32px;
+
+    border-style: solid;
+    border-width: 6px 12px;
+    border-image-slice: 6 12 fill;
+    border-image-width: 6px 12px;
+    border-image-repeat: stretch;
+
+    background: transparent;
+    padding: 6px 12px;
+
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+
+    font-family: "Kavoon";
+    color: #ffffff;
+    cursor: pointer;
+    user-select: none;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: filter 0.08s linear, transform 0.05s linear;
+}
+
+.pixel-button:hover{
+    filter: brightness(1.15);
+}
+
+.pixel-button:active{
+    filter: brightness(0.8);
+    transform: translateY(2px);
+}
+
+.pixel-button:focus-visible {
+  outline: 2px dashed #fff;
+  outline-offset: 3px;
+}
+
+.pixel-button__label {
+  image-rendering: pixelated; /* in case label wraps an icon later */
+  white-space: nowrap;
+}
