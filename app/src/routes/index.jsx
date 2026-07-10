@@ -1,4 +1,5 @@
 import { PixelButton } from '@/components/PixelButton';
+import { usePageTransition } from '@/transitions/TransitionOverlay';
 import { createFileRoute } from '@tanstack/react-router';
 import { motion } from 'framer-motion';
 
@@ -7,7 +8,9 @@ export const Route = createFileRoute('/')({
 })
 
 function TimerPage() {
-  return <>
+  const { goTo } = usePageTransition();
+
+  return (
     <div className="relative w-full h-screen overflow-hidden">
       <motion.div
         className="absolute inset-0 [image-rendering:pixelated]"
@@ -50,6 +53,12 @@ function TimerPage() {
               className="color"
               width={150}
               height={50}
+              onClick={
+                (e) => goTo('/menu', {
+                  type: 'circleWipe',
+                  origin: { x: e.clientX, y: e.clientY },
+                })
+              }
             >
               <span className="text-[#953240]">START!</span>
             </PixelButton>
@@ -63,6 +72,9 @@ function TimerPage() {
               className="color"
               width={150}
               height={50}
+              onClick={
+                () => window.electronAPI.quit()
+              }
             >
               <span className="text-[#953240]">QUIT?</span>
             </PixelButton>
@@ -70,12 +82,5 @@ function TimerPage() {
         </div>
       </motion.div>
     </div>
-  </>
+  )
 }
-
-
-/**
-Remaining Todos at this page
-1. Set up fonts!!
-2. 
-*/

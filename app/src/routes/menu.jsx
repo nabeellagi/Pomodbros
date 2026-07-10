@@ -1,3 +1,5 @@
+import { PixelButton } from '@/components/PixelButton'
+import Title from '@/components/title'
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/menu')({
@@ -5,5 +7,14 @@ export const Route = createFileRoute('/menu')({
 })
 
 function RouteComponent() {
-  return <div>Hello "menu"!</div>
+  return(
+    <div className="flex flex-col items-center justify-center">
+      <Title>
+        MENU
+      </Title>
+      <div>
+        
+      </div>     
+    </div>
+  )
 }
