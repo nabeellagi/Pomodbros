@@ -1,3 +1,4 @@
+import { Clock } from '@/components/clock'
 import { PixelButton } from '@/components/PixelButton'
 import Title from '@/components/title'
 import { createFileRoute } from '@tanstack/react-router'
@@ -19,10 +20,11 @@ function RouteComponent() {
         backgroundSize: 'cover'
       }}
     >
-      <div>
-        <Title>
-          MENU
-        </Title>
+      <div className="relative w-full flex items-center justify-center">
+        <Title>MENU</Title>
+        <div className="absolute right-6">
+          <Clock />
+        </div>
       </div>
     </div>
   )
