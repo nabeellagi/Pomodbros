@@ -4,6 +4,10 @@ import Title from '@/components/title'
 import { createFileRoute } from '@tanstack/react-router'
 import { useEffect, useState, useRef } from 'react'
 import gsap from 'gsap'
+import { H1 } from '@/components/headings'
+import P from '@/components/paragraphs'
+import { Counter } from '@/components/counter'
+import { TapeSelector } from '@/components/TapeSelector'
 
 export const Route = createFileRoute('/menu')({
   component: RouteComponent,
@@ -12,6 +16,7 @@ export const Route = createFileRoute('/menu')({
 function RouteComponent() {
   const bg = useTimeOfDayBg();
   const clockRef = useRef(null);
+  const wallRef = useRef(null);
 
   console.log("GSAP running", clockRef.current);
 
@@ -23,13 +28,26 @@ function RouteComponent() {
         opacity: 0,
       },
       {
-        y:0,
-        opacity:1,
+        y: 0,
+        opacity: 1,
         duration: 1.5,
         ease: "power3.out"
       }
     )
 
+    // Wall animation
+    gsap.fromTo(wallRef.current,
+      {
+        x: 200,
+        opacity: 0
+      },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 4,
+        ease: "power3.out"
+      }
+    )
   }, [])
 
   return (
@@ -50,6 +68,28 @@ function RouteComponent() {
         >
           <Clock />
         </div>
+      </div>
+      <div
+        className="fixed bottom-0 left-0 w-full"
+        ref={wallRef}
+      >
+        <img
+          src="/panels/wood.png"
+          className="w-full"
+        />
+        <div className="absolute top-[168px] left-[128px] text-white">
+          <H1 className="[text-shadow:2px_2px_0px_black]">How many sessions?</H1>
+          <P className="[text-shadow:1px_1px_0px_black]">One Pomodoro consists of 25 minutes of focused work <br /> and a 5-minute break.</P>
+        </div>
+        <div className="absolute top-[90px] left-[600px]">
+          <Counter />
+        </div>
+      </div>
+      <div>
+        <TapeSelector
+          defaultActive="casual"
+          onChange={(id) => console.log('Selected tape:', id)}
+        />
       </div>
     </div>
   )
@@ -73,9 +113,3 @@ const useTimeOfDayBg = () => {
 
   return bg;
 }
-
-/**
-TODO :
-1. Bg change
-2. Back btn
- */

@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as MenuRouteImport } from './routes/menu'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as TimerCasualRouteImport } from './routes/timer/casual'
 import { Route as TestingsFontsRouteImport } from './routes/testings/fonts'
 
 const MenuRoute = MenuRouteImport.update({
@@ -23,6 +24,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 })
+const TimerCasualRoute = TimerCasualRouteImport.update({
+  id: '/timer/casual',
+  path: '/timer/casual',
+  getParentRoute: () => rootRouteImport,
+})
 const TestingsFontsRoute = TestingsFontsRouteImport.update({
   id: '/testings/fonts',
   path: '/testings/fonts',
@@ -33,5 +39,6 @@ const rootRouteChildren = {
   IndexRoute: IndexRoute,
   MenuRoute: MenuRoute,
   TestingsFontsRoute: TestingsFontsRoute,
+  TimerCasualRoute: TimerCasualRoute,
 }
 export const routeTree = rootRouteImport._addFileChildren(rootRouteChildren)
