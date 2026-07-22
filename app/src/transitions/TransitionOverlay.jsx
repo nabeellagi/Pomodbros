@@ -10,16 +10,16 @@ export function TransitionProvider({ children }) {
   const [phase, setPhase] = useState(null); // null | 'covering' | 'revealing'
   const [config, setConfig] = useState(null);
 
-  const goTo = useCallback((to, { type = 'circleWipe', origin } = {}) => {
+  const goTo = useCallback((to, { type = 'circleWipe', origin, ...navigateOptions } = {}) => {
     const def = transitions[type];
     const originPoint = origin ?? { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-    const keyframes = def.getKeyframes(originPoint); // computed once, not per render
-    setConfig({ def, keyframes, to });
+    const keyframes = def.getKeyframes(originPoint);
+    setConfig({ def, keyframes, to, navigateOptions });
     setPhase('covering');
   }, []);
 
   const handleCoverComplete = () => {
-    navigate({ to: config.to });
+    navigate({ to: config.to, ...config.navigateOptions });
     setPhase('revealing');
   };
 
